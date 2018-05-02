@@ -7,6 +7,7 @@ from flask_login import LoginManager
 from logging.handlers import RotatingFileHandler
 import os
 from flask_bootstrap import Bootstrap
+from flask_moment import Moment
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -14,6 +15,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 bootstrap = Bootstrap(app)
+moment = Moment(app)
 from app import routes, models, errors
 
 login.login_view = 'login'
